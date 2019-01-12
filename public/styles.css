@@ -1,0 +1,85 @@
+/* LEGHORN - CUSTOM STYLESHEET */
+
+body {
+  background-color: rgb(241, 242, 195);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+header * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+header img {
+  align-self: center;
+  padding: 0px 20px;
+}
+
+.panelContent {
+  border: 2px solid rgb(89, 84, 14);
+  padding: 15px;
+  border-radius: 15px;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.panelContent h1 {
+  margin-bottom: 20px;
+}
+
+.panelContent * {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.panelContent input {
+  max-width: 250px;
+  width: 80%
+}
+
+.panelContent button {
+  margin-top: 20px;
+  width: 150px;
+  border: 1px solid rgb(94, 52, 11);
+  border-radius: 15px;
+  background-color: rgb(89, 84, 14);
+  color: rgb(225, 245, 213);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#postForm textarea {
+  width: 80%;
+  font-family: serif;
+}
+
+footer {
+  padding: 20px;
+}
+
+footer button {
+  display: block;
+  width: 100px;
+  border: 1px solid rgb(116, 115, 105);
+  border-radius: 15px;
+  background-color: rgb(116, 115, 105);
+  color: rgb(225, 245, 213);
+  font-weight: bold;
+  font-style: italic;
+  cursor: pointer;
+  margin: auto;
+}
+
+input::placeholder {
+  color: red;
+  font-family: serif;
+  font-style: italic;
+}

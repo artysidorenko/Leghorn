@@ -1,0 +1,45 @@
+{
+  "name": "leghorn",
+  "version": "1.0.0",
+  "description": "Communication app for registered users to post news/comments",
+  "main": "server.js",
+  "scripts": {
+    "front end tests": "node ./test/frontEndTests.js | tap-spec",
+    "router tests": "node ./test/routerTests.js | tap-spec",
+    "test": "nyc npm run 'front end tests' && nyc npm run 'router tests'",
+    "nodemon": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artysidorenko/Leghorn.git"
+  },
+  "keywords": [
+    "communication",
+    "practice",
+    "training",
+    "authorisation"
+  ],
+  "author": "Arty Sidorenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artysidorenko/Leghorn/issues"
+  },
+  "homepage": "https://github.com/artysidorenko/Leghorn#readme",
+  "devDependencies": {
+    "env2": "^2.2.2",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "nodemon": "^1.18.9",
+    "nyc": "^13.1.0",
+    "pg": "^7.7.1",
+    "supertest": "^3.3.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "env2": "^2.2.2",
+    "pg": "^7.7.1"
+  }
+}

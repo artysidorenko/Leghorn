@@ -1,0 +1,72 @@
+// LEGHORN - CLIENT SIDE DOM
+/* eslint-disable */
+
+(function() {
+
+  window.onload = function()  {
+    var loginUsername = document.getElementById('login-username');
+    var loginPassword = document.getElementById('login-password');
+
+    var regUsername = document.getElementById('reg-username');
+    var regPassword = document.getElementById('reg-password');
+    var regConfirmPassword = document.getElementById('reg-confirmPassword');
+
+    var loginForm = document.getElementById('loginForm');
+    var registerForm = document.getElementById('registerForm');
+
+    var appendWarningMessage = function(warning) {
+      var warningMessage = document.createElement('h3');
+      warningMessage.style.textAlign = 'center';
+      warningMessage.style.marginTop = '20px';
+      warningMessage.textContent = warning;
+      document.body.appendChild(warningMessage);
+    }
+
+    loginForm.addEventListener('submit', function(event) {
+      // if (!validationFunctions.validateInput(loginEmail.value)) {
+      //   event.preventDefault();
+      //   loginEmail.value = '';
+      //   loginEmail.placeholder = 'Enter a valid email';
+      // }
+      if (!validationFunctions.validateInput(loginUsername.value)) {
+        event.preventDefault();
+        loginEmail.value = '';
+        loginEmail.placeholder = 'Enter a valid username';
+      }
+      if (!validationFunctions.validateInput(loginPassword.value)) {
+        event.preventDefault();
+        loginPassword.value = '';
+        loginPassword.placeholder = 'Enter a valid password';
+      }
+    });
+
+    registerForm.addEventListener('submit', function(event) {
+      // if (!validationFunctions.validateInput(regEmail.value)) {
+      //   event.preventDefault();
+      //   regEmail.value = '';
+      //   regEmail.placeholder = 'Enter a valid email';
+      // }
+      if (!validationFunctions.validateInput(regUsername.value)) {
+        event.preventDefault();
+        regEmail.value = '';
+        regEmail.placeholder = 'Enter a valid username';
+      }
+      if (!validationFunctions.validateInput(regPassword.value)) {
+        event.preventDefault();
+        regPassword.value = '';
+        regPassword.placeholder = 'Enter a valid password';
+      }
+      // if (validationFunctions.validateInput(regEmail.value) && !validationFunctions.validateEmail(regEmail.value)) {
+      //   event.preventDefault();
+      //   regEmail.value = '';
+      //   regEmail.placeholder = 'Email needs to be in a valid format';
+      // }
+      if (!validationFunctions.passwordMatch(regPassword.value, regConfirmPassword.value))  {
+        event.preventDefault();
+        regConfirmPassword.value = '';
+        regConfirmPassword.placeholder = 'Passwords need to match';
+      }
+    });
+  }
+
+})();

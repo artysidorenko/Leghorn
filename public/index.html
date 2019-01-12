@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leghorn - Login Page</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="logic.js"></script>
+    <script src="index.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <img width="56" alt="Rooster silhouette" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Rooster_silhouette.svg/256px-Rooster_silhouette.svg.png">
+      <h2>Leghorn - Cluck Round The Clock!</h2>
+    </header>
+
+    <main>
+      <section id="loginPanel">
+        <form class="panelContent" id="loginForm" action="/login" method="post">
+          <h1>Log Into Existing Account</h1>
+          <label for="login-username">Username:
+            <input id="login-username" name="username"/>
+          </label>
+          <label for="login-password">Password:
+            <input id="login-password" name="password"/>
+          </label>
+          <button type="submit">Log In</button>
+        </form>
+      </section>
+      <section id=registerPanel>
+        <form class="panelContent" id="registerForm" action="/register" method="post">
+          <h1>.. Or Create New User</h1>
+          <label for="reg-username">Username:
+            <input id="reg-username" name="username"/>
+          </label>
+          <label for="reg-password">Password:
+            <input id="reg-password" name="password"/>
+          </label>
+          <label for="reg-confirmPassword">Confirm password:
+            <input id="reg-confirmPassword" name="confirmPassword"/>
+          </label>
+          <button type="submit">Register</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>SVG: Hazmat2Original: Ben23 [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons</p>
+    </footer>
+
+
+  </body>
+</html>

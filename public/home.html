@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leghorn - User Dashboard</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="index.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <img width="56" alt="Rooster silhouette" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Rooster_silhouette.svg/256px-Rooster_silhouette.svg.png">
+      <h2>Leghorn - Welcome back!</h2>
+      <!-- TODO: Leghorn - add JS to include username in header -->
+    </header>
+
+    <main>
+      <section id="postPanel">
+        <form class="panelContent" id="postForm" action="/login" method="post">
+          <h1>Cluck at Your Followers</h1>
+          <label for="post-text">What's On Your Mind?
+            <textarea id="post-text" name="post-text" rows="8" cols=""></textarea>
+          </label>
+          <button type="submit">Cluck</button>
+        </form>
+      </section>
+      <section id=newsPanel>
+        <div class="panelContent">
+          <h1>Who's Been Clucking?</h1>
+
+        </div>
+      </section>
+      <section id=searchPanel>
+        <form class="panelContent" id="searchForm" action="/search" method="get">
+          <h1>Search Clucks or Cluckers</h1>
+          <input id="search-text" placeholder="Enter search word(s) here"/>
+          <button type="submit">Search</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <button type="button" id="logOutBtn">Log Out</button>
+      <p>SVG: Hazmat2Original: Ben23 [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons</p>
+    </footer>
+
+
+  </body>
+</html>
