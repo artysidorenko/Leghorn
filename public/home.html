@@ -5,43 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leghorn - User Dashboard</title>
     <link href="styles.css" rel="stylesheet"/>
-    <script src="index.js"></script>
+    <script src="home.js"></script>
   </head>
 
   <body>
-    <header>
-      <img width="56" alt="Rooster silhouette" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Rooster_silhouette.svg/256px-Rooster_silhouette.svg.png">
-      <h2>Leghorn - Welcome back!</h2>
+    <header class="banner__container">
+      <img class="banner__logo" width="56" alt="Rooster silhouette" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Rooster_silhouette.svg/256px-Rooster_silhouette.svg.png">
+      <h2 class="banner__heading">Leghorn - Welcome back!</h2>
       <!-- TODO: Leghorn - add JS to include username in header -->
     </header>
 
-    <main>
-      <section id="postPanel">
-        <form class="panelContent" id="postForm" action="/login" method="post">
-          <h1>Cluck at Your Followers</h1>
-          <label for="post-text">What's On Your Mind?
-            <textarea id="post-text" name="post-text" rows="8" cols=""></textarea>
+    <main class="main__container">
+      <section class="?????" id="postPanel">
+        <form class="panel__container" id="postForm" action="/postNew" method="post">
+          <h1 class="panel__heading">Cluck at Your Followers</h1>
+          <label class="panel__label" for="post-text">What's On Your Mind?
+            <textarea class="panel__textarea" id="post-text" name="postText" rows="8" cols=""></textarea>
           </label>
-          <button type="submit">Cluck</button>
+          <button class="panel__button" type="submit">Cluck</button>
         </form>
       </section>
-      <section id=newsPanel>
-        <div class="panelContent">
-          <h1>Who's Been Clucking?</h1>
-
+      <section id="??????">
+        <div class="panel__container" id="newsfeed">
+          <h1 class="panel__heading">Who's Been Clucking?</h1>
+          <!-- PLACEHOLDER FOR CLUCK CONTENT -->
+          <article class="newsfeed__article">
+            <p class="newsfeed__author">From: arty</p>
+            <p>This is a premade test post.</p>
+            <p class="newsfeed__date">Posted: test date.</p>
+          </article>
+          <article class="newsfeed__article">
+            <p class="newsfeed__author">From: arty</p>
+            <p>This is a premade test post.</p>
+            <p class="newsfeed__date">Posted: test date.</p>
+          </article>
         </div>
       </section>
-      <section id=searchPanel>
+      <!-- CURRENTLY DISABLING SEARCH FACILITY -->
+      <!-- <section id=searchPanel>
         <form class="panelContent" id="searchForm" action="/search" method="get">
           <h1>Search Clucks or Cluckers</h1>
           <input id="search-text" placeholder="Enter search word(s) here"/>
           <button type="submit">Search</button>
         </form>
-      </section>
+      </section> -->
     </main>
-    <footer>
-      <button type="button" id="logOutBtn">Log Out</button>
-      <p>SVG: Hazmat2Original: Ben23 [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons</p>
+    <footer class="footer__container">
+      <button class="footer__button" type="button" id="logOutBtn">Log Out</button>
+      <p class="footer__heading">Credits:</p>
+      <p class="footer__footnote">Site/server design by pjsmooth/Arty Sidorenko</p>
+      <p class="footer__footnote">SVG: Hazmat2Original: Ben23 [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons</p>
     </footer>
 
 

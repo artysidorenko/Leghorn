@@ -4,24 +4,28 @@ body {
   background-color: rgb(241, 242, 195);
 }
 
-header {
+/* BANNER/NAVBAR STYLING */
+
+.banner__container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
 }
 
-header * {
+.banner__heading {
   display: inline-block;
   vertical-align: middle;
 }
 
-header img {
+.banner__logo {
   align-self: center;
   padding: 0px 20px;
 }
 
-.panelContent {
+/* GENERIC PANEL(S) STYLING */
+
+.panel__container {
   border: 2px solid rgb(89, 84, 14);
   padding: 15px;
   border-radius: 15px;
@@ -30,22 +34,18 @@ header img {
   margin-top: 20px;
 }
 
-.panelContent h1 {
+.panel__heading {
   margin-bottom: 20px;
+  text-align: center;
 }
 
-.panelContent * {
+.panel__label, .panel__button, .panel__textarea {
   display: block;
   margin: auto;
   text-align: center;
 }
 
-.panelContent input {
-  max-width: 250px;
-  width: 80%
-}
-
-.panelContent button {
+.panel__button {
   margin-top: 20px;
   width: 150px;
   border: 1px solid rgb(94, 52, 11);
@@ -56,16 +56,29 @@ header img {
   cursor: pointer;
 }
 
-#postForm textarea {
-  width: 80%;
-  font-family: serif;
-}
-
-footer {
+.newsfeed__article {
+  border-top: grey dashed 2px;
   padding: 20px;
 }
 
-footer button {
+.newsfeed__author {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.newsfeed__date {
+  font-style: italic;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* FOOTER STYLING */
+
+.footer__container {
+  padding: 20px;
+}
+
+.footer__button {
   display: block;
   width: 100px;
   border: 1px solid rgb(116, 115, 105);
@@ -75,7 +88,19 @@ footer button {
   font-weight: bold;
   font-style: italic;
   cursor: pointer;
-  margin: auto;
+  margin: 10px auto;
+}
+
+.footer__heading {
+  font-style: italic;
+  font-size: small;
+  text-decoration: underline;
+}
+
+.footer__footnote {
+  font-style: italic;
+  font-size: small;
+  margin: 0;
 }
 
 input::placeholder {

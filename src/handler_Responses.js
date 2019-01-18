@@ -8,18 +8,6 @@ handlerResponses.sendResponse = (response, code, header, body) => {
   response.end(body);
 };
 
-// handlerResponses.index = (request, response) => {
-//   const fullPath = path.join(__dirname, '..', 'public', 'index.html');
-//   fs.readFile(fullPath, 'utf8', (error, file) => {
-//     /* istanbul ignore if */
-//     if (error) {
-//       handlerResponses.serverError(error, response);
-//     } else {
-//       handlerResponses.sendResponse(response, 200, { 'Content-Type': 'text/html' }, file);
-//     }
-//   });
-// };
-
 handlerResponses.htmlPage = (request, response, page) => {
   const fullPath = path.join(__dirname, '..', 'public', `${page}.html`);
   fs.readFile(fullPath, 'utf8', (error, file) => {
