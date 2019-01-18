@@ -7,7 +7,8 @@
     "front end tests": "node ./test/frontEndTests.js | tap-spec",
     "router tests": "node ./test/routerTests.js | tap-spec",
     "test": "nyc npm run 'front end tests' && nyc npm run 'router tests'",
-    "nodemon": "nodemon ./src/server.js"
+    "nodemon": "nodemon ./src/server.js",
+    "start": "node ./src/server.js"
   },
   "repository": {
     "type": "git",

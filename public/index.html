@@ -10,42 +10,44 @@
   </head>
 
   <body>
-    <header>
-      <img width="56" alt="Rooster silhouette" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Rooster_silhouette.svg/256px-Rooster_silhouette.svg.png">
-      <h2>Leghorn - Cluck Round The Clock!</h2>
+    <header class="banner__container">
+      <img class="banner__logo" width="56" alt="Rooster silhouette" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Rooster_silhouette.svg/256px-Rooster_silhouette.svg.png">
+      <h2 class="banner__heading">Leghorn - Cluck Round The Clock!</h2>
     </header>
 
     <main>
       <section id="loginPanel">
-        <form class="panelContent" id="loginForm" action="/login" method="post">
-          <h1>Log Into Existing Account</h1>
-          <label for="login-username">Username:
-            <input id="login-username" name="username"/>
+        <form class="panel__container" id="loginForm" action="/login" method="post">
+          <h1 class="panel__heading">Log Into Existing Account</h1>
+          <label class="panel__label" for="login-username">Username:
+            <input class="panel__input" id="login-username" name="username"/>
           </label>
-          <label for="login-password">Password:
-            <input id="login-password" name="password"/>
+          <label class="panel__label" for="login-password">Password:
+            <input class="panel__input" id="login-password" name="password"/>
           </label>
-          <button type="submit">Log In</button>
+          <button class="panel__button" type="submit">Log In</button>
         </form>
       </section>
       <section id=registerPanel>
-        <form class="panelContent" id="registerForm" action="/register" method="post">
-          <h1>.. Or Create New User</h1>
-          <label for="reg-username">Username:
-            <input id="reg-username" name="username"/>
+        <form class="panel__container" id="registerForm" action="/register" method="post">
+          <h1 class="panel__heading">.. Or Create New User</h1>
+          <label class="panel__label" for="reg-username">Username:
+            <input class="panel__input" id="reg-username" name="username"/>
           </label>
-          <label for="reg-password">Password:
-            <input id="reg-password" name="password"/>
+          <label class="panel__label" for="reg-password">Password:
+            <input class="panel__input" id="reg-password" name="password"/>
           </label>
-          <label for="reg-confirmPassword">Confirm password:
-            <input id="reg-confirmPassword" name="confirmPassword"/>
+          <label class="panel__label" for="reg-confirmPassword">Confirm password:
+            <input class="panel__input"  id="reg-confirmPassword" name="confirmPassword"/>
           </label>
-          <button type="submit">Register</button>
+          <button class="panel__button" type="submit">Register</button>
         </form>
       </section>
     </main>
-    <footer>
-      <p>SVG: Hazmat2Original: Ben23 [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons</p>
+    <footer class="footer__container">
+      <p class="footer__heading">Site Credits:</p>
+      <p class="footer__footnote">Website/server design by pjsmooth/Arty Sidorenko</p>
+      <p class="footer__footnote">SVG: Hazmat2Original: Ben23 [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons</p>
     </footer>
 
 

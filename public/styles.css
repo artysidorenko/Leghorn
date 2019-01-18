@@ -1,7 +1,7 @@
 /* LEGHORN - CUSTOM STYLESHEET */
 
 body {
-  background-color: rgb(241, 242, 195);
+  background-color: rgb(209, 230, 142);
 }
 
 /* BANNER/NAVBAR STYLING */
@@ -26,6 +26,7 @@ body {
 /* GENERIC PANEL(S) STYLING */
 
 .panel__container {
+  background-color: rgb(241, 242, 195);
   border: 2px solid rgb(89, 84, 14);
   padding: 15px;
   border-radius: 15px;
@@ -39,10 +40,14 @@ body {
   text-align: center;
 }
 
-.panel__label, .panel__button, .panel__textarea {
+.panel__label, .panel__button, .panel__textarea, .panel__input {
   display: block;
   margin: auto;
   text-align: center;
+}
+
+.panel__textarea {
+  width: 80%;
 }
 
 .panel__button {
