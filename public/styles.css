@@ -25,6 +25,13 @@ body {
 
 /* GENERIC PANEL(S) STYLING */
 
+@media only screen and (min-width: 700px) {
+  .main__container  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .panel__container {
   background-color: rgb(241, 242, 195);
   border: 2px solid rgb(89, 84, 14);
