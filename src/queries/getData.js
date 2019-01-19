@@ -29,7 +29,7 @@ getData.search = (table, fetchColumns, lookupColumn, searchTerm, callback) => {
 };
 
 getData.postHistory = (callback) => {
-  const sql = 'SELECT users.username, posts.post_date, posts.text_content FROM users INNER JOIN posts ON users.id = posts.author_id';
+  const sql = 'SELECT users.username, posts.post_date, posts.text_content FROM users INNER JOIN posts ON users.id = posts.author_id ORDER BY posts.post_date DESC';
   dbConnection.query(sql, (error, response) => {
     if (error) callback(error);
     if (response === undefined) {

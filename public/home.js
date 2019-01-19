@@ -26,7 +26,7 @@
 
     postAuthor.textContent = 'From: ' + post.username;
     postText.textContent = post.text_content;
-    postDate.textContent = 'Posted: ' + post.post_date;
+    postDate.textContent = 'Posted: ' + formatDate(post.post_date);
 
     postBox.classList.add('newsfeed__article');
     postAuthor.classList.add('newsfeed__author');
@@ -36,6 +36,20 @@
     postBox.appendChild(postAuthor);
     postBox.appendChild(postText);
     postBox.appendChild(postDate);
+  };
+
+  var formatDate = function(data) {
+    var timestamp = new Date(data);
+    var now = new Date();
+    var ageMinutes = (now - timestamp) / 60000;
+    var ageHours = (now - timestamp) / (60000*60);
+    var ageDays = (now - timestamp) / (60000*60*24);
+    var ageWeeks = (now - timestamp) / (60000*60*24*7);
+
+    if (ageHours < 1) return Math.round(ageMinutes) + ' minute(s) ago';
+    if (ageDays < 1 && now.getDay() === timestamp.getDay()) return 'today at ' + timestamp.getHours() + ':' + timestamp.getMinutes();
+    if (now.getFullYear() === timestamp.getFullYear()) return timestamp.toString().slice(0, 10);
+    return timestamp.toString().slice(0, 15);
   };
 
 })();
