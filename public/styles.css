@@ -61,6 +61,11 @@ body {
   cursor: pointer;
 }
 
+.panel__image {
+  display: block;
+  margin: auto;
+}
+
 .newsfeed__article {
   border-top: grey dashed 2px;
   padding: 20px;

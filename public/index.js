@@ -23,15 +23,10 @@
     }
 
     loginForm.addEventListener('submit', function(event) {
-      // if (!validationFunctions.validateInput(loginEmail.value)) {
-      //   event.preventDefault();
-      //   loginEmail.value = '';
-      //   loginEmail.placeholder = 'Enter a valid email';
-      // }
       if (!validationFunctions.validateInput(loginUsername.value)) {
         event.preventDefault();
-        loginEmail.value = '';
-        loginEmail.placeholder = 'Enter a valid username';
+        loginUsername.value = '';
+        loginUsername.placeholder = 'Enter a valid username';
       }
       if (!validationFunctions.validateInput(loginPassword.value)) {
         event.preventDefault();
@@ -41,26 +36,16 @@
     });
 
     registerForm.addEventListener('submit', function(event) {
-      // if (!validationFunctions.validateInput(regEmail.value)) {
-      //   event.preventDefault();
-      //   regEmail.value = '';
-      //   regEmail.placeholder = 'Enter a valid email';
-      // }
       if (!validationFunctions.validateInput(regUsername.value)) {
         event.preventDefault();
-        regEmail.value = '';
-        regEmail.placeholder = 'Enter a valid username';
+        regUsername.value = '';
+        regUsername.placeholder = 'Enter a valid username';
       }
       if (!validationFunctions.validateInput(regPassword.value)) {
         event.preventDefault();
         regPassword.value = '';
         regPassword.placeholder = 'Enter a valid password';
       }
-      // if (validationFunctions.validateInput(regEmail.value) && !validationFunctions.validateEmail(regEmail.value)) {
-      //   event.preventDefault();
-      //   regEmail.value = '';
-      //   regEmail.placeholder = 'Email needs to be in a valid format';
-      // }
       if (!validationFunctions.passwordMatch(regPassword.value, regConfirmPassword.value))  {
         event.preventDefault();
         regConfirmPassword.value = '';

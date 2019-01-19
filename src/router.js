@@ -7,6 +7,8 @@ const router = (req, res) => {
   switch (`${req.method} ${req.url}`) {
     case 'GET /':
       return handlerResponses.htmlPage(req, res, 'index');
+    case 'GET /sadrobot.png':
+      return handlerResponses.pngPage(req, res, req.url.slice(1));
     case 'GET /styles.css':
       return handlerResponses.cssPage(req, res, 'styles.css');
     case 'GET /index.js':
@@ -30,7 +32,7 @@ const router = (req, res) => {
     case 'POST /register':
       return handlerAuth.register(req, res);
     default:
-      return handlerResponses.notFound(req, res);
+      return handlerResponses.notFound(res);
   }
 };
 

@@ -79,16 +79,15 @@ handlerAuth.login = (req, res) => {
   handlerAuth.processForm(req, (formError, form) => {
     if (formError) throw new Error(`form process error: ${formError}`);
     getData.fetch('authorisation', 'password', 'username', form.username, (error, response) => {
-      if (error) throw new Error('Error verifying user data');
-      handlerAuth.comparePasswords(form.password, response[0].password, (error2, result) => {
-        if (error2) throw new Error('Error verifying user data');
-        if (result === false) handlerResponses.sendResponse(res, 200, { 'Content-Type': 'text/plain' }, 'Login details incorrect');
-        else if (result === true) {
-          handlerAuth.startSession(req, res, form.username);
-          // handlerResponses.sendResponse(
-          // res, 200, { 'Content-Type': 'text/plain' }, 'Logged in succesfully');
-        }
-      });
+      if (error) throw new Error('Error fetching user data from database');
+      if (response.length === 0) handlerResponses.htmlPage(req, res, 'loginError');
+      else {
+        handlerAuth.comparePasswords(form.password, response[0].password, (error2, result) => {
+          if (error2) throw new Error('Error verifying user data');
+          if (result === false) handlerResponses.htmlPage(req, res, 'loginError');
+          else if (result === true) handlerAuth.startSession(req, res, form.username);
+        });
+      }
     });
   });
 };

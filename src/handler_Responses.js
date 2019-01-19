@@ -13,7 +13,7 @@ handlerResponses.htmlPage = (request, response, page) => {
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) {
-      handlerResponses.serverError(error, response);
+      handlerResponses.serverError(response);
     } else {
       handlerResponses.sendResponse(response, 200, { 'Content-Type': 'text/html' }, file);
     }
@@ -26,7 +26,7 @@ handlerResponses.cssPage = (request, response, page) => {
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) {
-      handlerResponses.serverError(error, response);
+      handlerResponses.serverError(response);
     } else {
       handlerResponses.sendResponse(response, 200, { 'Content-Type': 'text/css' }, file);
     }
@@ -38,40 +38,62 @@ handlerResponses.scriptPage = (request, response, page) => {
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) {
-      handlerResponses.serverError(error, response);
+      handlerResponses.serverError(response);
     } else {
       handlerResponses.sendResponse(response, 200, { 'Content-Type': 'text/javascript' }, file);
     }
   });
 };
 
-handlerResponses.imgPage = (request, response, page) => {
+handlerResponses.pngPage = (request, response, page) => {
   const fullPath = path.join(__dirname, '..', 'public', page);
-  fs.readFile(fullPath, 'utf8', (error, file) => {
+  console.log(fullPath);
+  fs.readFile(fullPath, (error, file) => {
     /* istanbul ignore if */
     if (error) {
-      handlerResponses.serverError(error, response);
+      handlerResponses.serverError(response);
+    } else {
+      handlerResponses.sendResponse(response, 200, { 'Content-Type': 'image/png' }, file);
+    }
+  });
+};
+
+handlerResponses.imgPage = (request, response, page) => {
+  const fullPath = path.join(__dirname, '..', 'public', page);
+  fs.readFile(fullPath, (error, file) => {
+    /* istanbul ignore if */
+    if (error) {
+      handlerResponses.serverError(response);
     } else {
       handlerResponses.sendResponse(response, 200, { 'Content-Type': 'image/svg+xml' }, file);
     }
   });
 };
 
-handlerResponses.serverError = (error, response) => {
-  handlerResponses.sendResponse(
-    response, 500, { 'Content-Type': 'text/html' },
-    '<h1>Sorry, there was a problem loading the homepage</h1>',
-  );
-  /* istanbul ignore next */
-  // eslint-disable-next-line no-console
-  console.log(error);
+handlerResponses.loginError = (response) => {
+  const fullPath = path.join(__dirname, '..', 'public', 'loginError.html');
+  fs.readFile(fullPath, 'utf8', (error, file) => {
+    /* istanbul ignore if */
+    if (error) handlerResponses.serverError(response);
+    else handlerResponses.sendResponse(response, 401, { 'Content-Type': 'text/html' }, file);
+  });
 };
 
-handlerResponses.notFound = (error, response) => {
-  handlerResponses.sendResponse(
-    response, 404, { 'Content-Type': 'text/html' },
-    '<h1>404 - Sorry, the requested information was not found</h1>',
-  );
+handlerResponses.serverError = (response) => {
+  const fullPath = path.join(__dirname, '..', 'public', '500Error.html');
+  fs.readFile(fullPath, 'utf8', (error, file) => {
+    /* istanbul ignore if */
+    handlerResponses.sendResponse(response, 500, { 'Content-Type': 'text/html' }, file);
+  });
+};
+
+handlerResponses.notFound = (response) => {
+  const fullPath = path.join(__dirname, '..', 'public', '404Error.html');
+  fs.readFile(fullPath, 'utf8', (error, file) => {
+    /* istanbul ignore if */
+    if (error) handlerResponses.serverError(response);
+    else handlerResponses.sendResponse(response, 404, { 'Content-Type': 'text/html' }, file);
+  });
 };
 
 module.exports = handlerResponses;
