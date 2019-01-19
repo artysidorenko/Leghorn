@@ -58,6 +58,7 @@ body {
   background-color: rgb(89, 84, 14);
   color: rgb(225, 245, 213);
   font-weight: bold;
+  font-family: arial!important;
   cursor: pointer;
 }
 
@@ -89,14 +90,18 @@ body {
 }
 
 .footer__button {
+  text-align: center;
+  font-family: arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: small;
+  text-decoration: none;
   display: block;
   width: 100px;
   border: 1px solid rgb(116, 115, 105);
   border-radius: 15px;
   background-color: rgb(116, 115, 105);
   color: rgb(225, 245, 213);
-  font-weight: bold;
-  font-style: italic;
   cursor: pointer;
   margin: 10px auto;
 }

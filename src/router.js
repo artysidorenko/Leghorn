@@ -8,6 +8,7 @@ const router = (req, res) => {
     case 'GET /':
       return handlerResponses.htmlPage(req, res, 'index');
     case 'GET /sadrobot.png':
+    case 'GET /rooster.png':
       return handlerResponses.pngPage(req, res, req.url.slice(1));
     case 'GET /styles.css':
       return handlerResponses.cssPage(req, res, 'styles.css');
@@ -17,17 +18,17 @@ const router = (req, res) => {
       return handlerResponses.scriptPage(req, res, req.url.slice(1));
     case 'GET /homepage':
       if (handlerAuth.verifySession(req)) return handlerResponses.htmlPage(req, res, 'home');
-      return handlerResponses.sendResponse(res, 401, { 'Content-Type': 'text/plain' }, 'Access Denied');
+      return handlerResponses.forbidden(res);
     case 'GET /recentPosts':
       if (handlerAuth.verifySession(req)) return handlerPosts.getRecentPosts(req, res);
       return null;
     case 'POST /postNew':
       if (handlerAuth.verifySession(req)) {
         return handlerPosts.addPost(req, res);
-      } return handlerResponses.sendResponse(res, 401, { 'Content-Type': 'text/plain' }, 'Access Denied');
+      } return handlerResponses.forbidden(res);
     case 'POST /login':
       return handlerAuth.login(req, res);
-    case 'POST /logout':
+    case 'GET /logout':
       return handlerAuth.logout(req, res);
     case 'POST /register':
       return handlerAuth.register(req, res);

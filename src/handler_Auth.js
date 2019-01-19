@@ -9,7 +9,7 @@ const handlerAuth = {};
 
 // Attempt to implement a signed cookie session management system without using external libraries:
 
-handlerAuth.secret = 'artyfarty';
+handlerAuth.secret = `artyfarty ${Date.now().toString()}`;
 
 handlerAuth.signCookie = (cookie) => {
   const hmac = crypto.createHmac('sha256', handlerAuth.secret);
@@ -19,6 +19,7 @@ handlerAuth.signCookie = (cookie) => {
 
 /* eslint-disable */
 handlerAuth.parseCookie = (cookie) => {
+  if (cookie === undefined) return null;
   const cookieArray = cookie.split('; ');
   const parsedCookie = cookieArray.reduce((object, elem) => {
     const key = elem.split('=')[0];
@@ -53,6 +54,7 @@ handlerAuth.startSession = (req, res, username) => {
 
 handlerAuth.verifySession = (req) => {
   const cookie = handlerAuth.parseCookie(req.headers.cookie);
+  if (cookie === null) return false;
   return handlerAuth.validateSignedCookie(cookie.username + cookie.sessionID, cookie.signature);
 };
 
@@ -90,6 +92,21 @@ handlerAuth.login = (req, res) => {
       }
     });
   });
+};
+
+handlerAuth.logout = (req, res) => {
+  res.writeHead(
+    303,
+    {
+      'Set-Cookie': [
+        'username=""; HttpOnly; Max-Age=0',
+        'sessionID=""; HttpOnly; Max-Age=0',
+        'signature="";HttpOnly; Max-Age=0',
+      ],
+      Location: '/',
+    },
+  );
+  return res.end();
 };
 
 handlerAuth.hashText = (text, callback) => {

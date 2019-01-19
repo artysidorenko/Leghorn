@@ -79,6 +79,15 @@ handlerResponses.loginError = (response) => {
   });
 };
 
+handlerResponses.forbidden = (response) => {
+  const fullPath = path.join(__dirname, '..', 'public', '401Error.html');
+  fs.readFile(fullPath, 'utf8', (error, file) => {
+    /* istanbul ignore if */
+    if (error) handlerResponses.serverError(response);
+    else handlerResponses.sendResponse(response, 401, { 'Content-Type': 'text/html' }, file);
+  });
+};
+
 handlerResponses.serverError = (response) => {
   const fullPath = path.join(__dirname, '..', 'public', '500Error.html');
   fs.readFile(fullPath, 'utf8', (error, file) => {

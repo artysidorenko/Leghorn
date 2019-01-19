@@ -4,6 +4,7 @@
 (function() {
 
   document.addEventListener('DOMContentLoaded', function() {
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if(xhr.readyState === 4 && xhr.status === 200){
@@ -16,6 +17,10 @@
     xhr.open('GET', '/recentPosts', true);
     xhr.send();
   });
+
+  var logOut = function(){
+
+  };
 
   var displayPosts = function(post) {
     var newsfeed = document.getElementById('newsfeed');
