@@ -53,8 +53,13 @@ handlerAuth.startSession = (req, res, username) => {
 };
 
 handlerAuth.verifySession = (req) => {
+  // console.log('starting verifying');
   const cookie = handlerAuth.parseCookie(req.headers.cookie);
+  // console.log(`cookie parsed: ${cookie}`);
   if (cookie === null) return false;
+  // console.log('validation launching');
+  // console.log(handlerAuth.validateSignedCookie(cookie.username
+  //   + cookie.sessionID, cookie.signature));
   return handlerAuth.validateSignedCookie(cookie.username + cookie.sessionID, cookie.signature);
 };
 

@@ -1,18 +1,34 @@
+// *****************************************************************************
+// Handler Responses Controller - handles logic for sending resources
+// to the client
+//
+// ******************************************************************************
+
 const fs = require('fs');
 const path = require('path');
 
 const handlerResponses = {};
+
+// Helper Functions used within most/all response functions
 
 handlerResponses.sendResponse = (response, code, header, body) => {
   response.writeHead(code, header);
   response.end(body);
 };
 
+handlerResponses.redirect = (response, code, header) => {
+  response.writeHead(code, header);
+  response.end();
+};
+
+// Resource Responses
+
 handlerResponses.htmlPage = (request, response, page) => {
-  const fullPath = path.join(__dirname, '..', 'public', `${page}.html`);
+  const fullPath = path.join(__dirname, '..', 'public', 'html', `${page}.html`);
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) {
+      console.log(error);
       handlerResponses.serverError(response);
     } else {
       handlerResponses.sendResponse(response, 200, { 'Content-Type': 'text/html' }, file);
@@ -34,7 +50,7 @@ handlerResponses.cssPage = (request, response, page) => {
 };
 
 handlerResponses.scriptPage = (request, response, page) => {
-  const fullPath = path.join(__dirname, '..', 'public', page);
+  const fullPath = path.join(__dirname, '..', 'public', 'scripts', page);
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) {
@@ -47,7 +63,6 @@ handlerResponses.scriptPage = (request, response, page) => {
 
 handlerResponses.pngPage = (request, response, page) => {
   const fullPath = path.join(__dirname, '..', 'public', page);
-  console.log(fullPath);
   fs.readFile(fullPath, (error, file) => {
     /* istanbul ignore if */
     if (error) {
@@ -70,8 +85,10 @@ handlerResponses.imgPage = (request, response, page) => {
   });
 };
 
+// Error Responses
+
 handlerResponses.loginError = (response) => {
-  const fullPath = path.join(__dirname, '..', 'public', 'loginError.html');
+  const fullPath = path.join(__dirname, '..', 'public', 'html', 'loginError.html');
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) handlerResponses.serverError(response);
@@ -80,7 +97,7 @@ handlerResponses.loginError = (response) => {
 };
 
 handlerResponses.forbidden = (response) => {
-  const fullPath = path.join(__dirname, '..', 'public', '401Error.html');
+  const fullPath = path.join(__dirname, '..', 'public', 'html', '401Error.html');
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) handlerResponses.serverError(response);
@@ -89,7 +106,7 @@ handlerResponses.forbidden = (response) => {
 };
 
 handlerResponses.serverError = (response) => {
-  const fullPath = path.join(__dirname, '..', 'public', '500Error.html');
+  const fullPath = path.join(__dirname, '..', 'public', 'html', '500Error.html');
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     handlerResponses.sendResponse(response, 500, { 'Content-Type': 'text/html' }, file);
@@ -97,7 +114,7 @@ handlerResponses.serverError = (response) => {
 };
 
 handlerResponses.notFound = (response) => {
-  const fullPath = path.join(__dirname, '..', 'public', '404Error.html');
+  const fullPath = path.join(__dirname, '..', 'public', 'html', '404Error.html');
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) handlerResponses.serverError(response);

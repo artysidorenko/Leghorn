@@ -11,22 +11,34 @@
   <body>
     <header class="banner__container">
       <img class="banner__logo" width="56" alt="Rooster silhouette" src="rooster.png">
-      <h2 class="banner__heading">Leghorn - Welcome back!</h2>
+      <h2 class="banner__heading">Leghorn - Welcome Back!</h2>
       <!-- TODO: Leghorn - add JS to include username in header -->
     </header>
 
     <main class="main__container">
-      <section class="?????" id="postPanel">
-        <form class="panel__container" id="postForm" action="/postNew" method="post">
+
+      <section id="postPanel" class="panel__container panel__container--top">
+        <form id="postForm" action="/postNew" method="post">
           <h1 class="panel__heading">Cluck at Your Followers</h1>
           <label class="panel__label" for="post-text">What's On Your Mind?
-            <textarea class="panel__textarea" id="post-text" name="postText" rows="8" cols=""></textarea>
+            <textarea class="panel__textarea" id="post-text" name="postText" rows="8" cols="" required></textarea>
           </label>
           <button class="panel__button" type="submit">Cluck</button>
         </form>
       </section>
-      <section id="??????">
-        <div class="panel__container" id="newsfeed">
+
+      <!-- CURRENTLY DISABLING SEARCH FACILITY -->
+      <section id=searchPanel class="panel__container panel__container--bottom">
+        <form id="searchForm" action="/search" method="get">
+          <label class="panel__label" for="search-text">Search Existing Clucks
+            <input name="searchTerm" id="search-text" placeholder="Enter search terms here" required/>
+          </label>
+          <button class="panel__button" type="submit">Search</button>
+        </form>
+      </section>
+
+      <section class="panel__container" id="newsfeed">
+        <div>
           <h1 class="panel__heading">Who's Been Clucking?</h1>
           <!-- PLACEHOLDER FOR CLUCK CONTENT -->
           <!-- <article class="newsfeed__article">
@@ -41,14 +53,7 @@
           </article> -->
         </div>
       </section>
-      <!-- CURRENTLY DISABLING SEARCH FACILITY -->
-      <!-- <section id=searchPanel>
-        <form class="panelContent" id="searchForm" action="/search" method="get">
-          <h1>Search Clucks or Cluckers</h1>
-          <input id="search-text" placeholder="Enter search word(s) here"/>
-          <button type="submit">Search</button>
-        </form>
-      </section> -->
+
     </main>
     <footer class="footer__container">
       <a class="footer__button" type="button" href="/logout">Log Out</a>

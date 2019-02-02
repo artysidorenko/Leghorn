@@ -28,6 +28,20 @@ getData.search = (table, fetchColumns, lookupColumn, searchTerm, callback) => {
   });
 };
 
+getData.searchAll = (table, fetchColumns, lookupColumns, searchTerm, callback) => {
+  const sql = `SELECT ${fetchColumns} FROM ${table} WHERE (${lookupColumns[0]} LIKE $1 OR ${lookupColumns[1]} LIKE $1)`;
+  const inserts = [`%${searchTerm}%`];
+  dbConnection.query(sql, inserts, (error, response) => {
+    if (error) callback(error);
+    if (response === undefined) {
+      callback(null, undefined);
+    } else {
+      console.log(response.rows);
+      callback(null, response.rows);
+    }
+  });
+};
+
 getData.postHistory = (callback) => {
   const sql = 'SELECT users.username, posts.post_date, posts.text_content FROM users INNER JOIN posts ON users.id = posts.author_id ORDER BY posts.post_date DESC';
   dbConnection.query(sql, (error, response) => {
