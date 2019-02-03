@@ -26,7 +26,7 @@ handlerPosts.addPost = (req, res) => {
       if (cookieError) throw new Error('unable to find user ID');
       postData.addPost(userID, body.postText, (sqlError) => {
         if (sqlError) throw new Error('problem saving post to database');
-        handlerResponses.sendResponse(res, 200, { 'Content-Type': 'text/plain' }, 'SUCCESS!!!');
+        handlerResponses.htmlPage(req, res, 'success');
       });
     });
   });
@@ -42,7 +42,7 @@ handlerPosts.addReply = (req, res) => {
       if (cookieError) throw new Error('unable to find user ID');
       postData.addReply(userID, body.replyText, body.postId, (sqlError) => {
         if (sqlError) throw new Error('problem saving post to database');
-        handlerResponses.sendResponse(res, 200, { 'Content-Type': 'text/plain' }, 'SUCCESS!!!');
+        handlerResponses.htmlPage(req, res, 'success');
       });
     });
   });
@@ -52,7 +52,7 @@ handlerPosts.getRecentPosts = (req, res) => {
   getData.postHistory((error, response) => {
     if (error) throw new Error(error);
     const recentPosts = [];
-    while (recentPosts.length < 10) recentPosts.push(response[recentPosts.length]);
+    while (recentPosts.length < 20) recentPosts.push(response[recentPosts.length]);
     handlerResponses.sendResponse(res, 200, { 'Content-Type': 'application/json' }, JSON.stringify(recentPosts));
   });
 };
