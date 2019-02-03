@@ -43,7 +43,7 @@ getData.searchAll = (table, fetchColumns, lookupColumns, searchTerm, callback) =
 };
 
 getData.postHistory = (callback) => {
-  const sql = 'SELECT users.username, posts.post_date, posts.text_content FROM users INNER JOIN posts ON users.id = posts.author_id ORDER BY posts.post_date DESC';
+  const sql = 'SELECT posts.id, users.username, posts.post_date, posts.text_content, (SELECT COUNT(*) FROM replies WHERE replies.post_id = posts.id GROUP BY replies.post_id) as replies FROM users INNER JOIN posts ON users.id = posts.author_id ORDER BY posts.post_date DESC';
   dbConnection.query(sql, (error, response) => {
     if (error) callback(error);
     if (response === undefined) {

@@ -24,7 +24,7 @@
 
   var displayPosts = function(post) {
     var newsfeed = document.getElementById('newsfeed');
-    var postBox = document.createElement('article');
+    var postBox = document.createElement('a');
     var postAuthor = document.createElement('p');
     var postText = document.createElement('p');
     var postDate = document.createElement('p');
@@ -37,10 +37,18 @@
     postAuthor.classList.add('newsfeed__author');
     postDate.classList.add('newsfeed__date');
 
+    postBox.href = 'cluck?id=' + post.id;
+
     newsfeed.appendChild(postBox);
     postBox.appendChild(postAuthor);
     postBox.appendChild(postText);
     postBox.appendChild(postDate);
+
+    if (post.replies > 0) {
+      var replies = document.createElement('p');
+      replies.textContent = post.replies + ' response(s)';
+      postBox.appendChild(replies);
+    }
   };
 
   var formatDate = function(data) {

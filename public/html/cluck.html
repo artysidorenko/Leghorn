@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leghorn - User Dashboard</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <link rel="icon"
+        type="image/png"
+        href="rooster.png">
+    <script src="postDetail.js"></script>
+  </head>
+
+  <body>
+    <header class="banner__container">
+      <a href='/'><img class="banner__logo" width="56" alt="Rooster silhouette" src="rooster.png"></a>
+      <h2 class="banner__heading">Leghorn - Cluckversation</h2>
+    </header>
+
+    <main class="main__container main__container--nogrid">
+
+      <section class="panel__container  panel__container--stretch">
+        <div>
+          <h1 class="replies__heading--small">Original Cluck:</h1>
+          <article class="">
+            <p class="newsfeed__author" id="postAuthor"></p>
+            <p  id="postText"></p>
+            <p class="newsfeed__date"  id="postDate"></p>
+          </article>
+        </div>
+        <form id="replyForm" action="/postReply" method="post">
+          <label class="panel__label" for="post-text">Respond to their cluck:
+            <textarea class="panel__textarea" id="reply-text" name="replyText" rows="8" cols="" required></textarea>
+          </label>
+          <input type="hidden" id="postId" name="postId">
+          <button class="panel__button" type="submit">Reply</button>
+        </form>
+      </section>
+
+      <section class="panel__container  panel__container--stretch">
+        <div>
+          <h1 class="replies__heading--small">Current Replies:</h1>
+          <!-- PLACEHOLDER FOR CLUCK CONTENT -->
+          <table class="search__table"  id="replyResults">
+            <tr>
+              <th>Author</th>
+              <th>Reply</th>
+              <th>Date</th>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+    </main>
+    <footer class="footer__container">
+      <a class="footer__button" type="button" href="/logout">Log Out</a>
+      <p class="footer__heading">Site Credits:</p>
+      <p class="footer__footnote">Website/server design by <a href="https://github.com/artysidorenko">pjsmooth/Arty Sidorenko</a></p>
+      <p class="footer__footnote">SVG: Hazmat2Original: Ben23 [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons</p>
+    </footer>
+
+
+  </body>
+</html>

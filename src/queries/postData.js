@@ -20,4 +20,13 @@ postData.addPost = (userID, post, callback) => {
   });
 };
 
+postData.addReply = (userID, reply, postId, callback) => {
+  const sql = 'INSERT INTO replies (author_id, reply_date, text_content, post_id) VALUES ($1, current_timestamp, $2, $3)';
+  const inserts = [userID, reply, postId];
+  dbConnection.query(sql, inserts, (error) => {
+    if (error) callback(error);
+    callback(null, 'postData success');
+  });
+};
+
 module.exports = postData;

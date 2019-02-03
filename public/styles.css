@@ -102,7 +102,7 @@ body {
   border: 2px solid rgb(89, 84, 14);
   padding: 15px;
   border-radius: 15px;
-  max-width: 300px;
+  width: 300px;
   margin: auto;
   margin-top: 20px;
 }
@@ -142,6 +142,9 @@ body {
 .newsfeed__article {
   border-top: grey dashed 2px;
   padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
 }
 
 .newsfeed__author {
@@ -167,14 +170,22 @@ body {
 }
 
 .search__table > th, td {
-  border-bottom: solid 1px black;
   font-size: small;
+  padding: 15px;
 }
 
-.search__table > tr:nth-child(even) {
+.search__table > tr:nth-child(odd) {
 background-color: #f2f2f2
 }
 
+.search__heading--small {
+  font-size: large;
+}
+
+.replies__heading--small {
+  font-size: large;
+  margin-bottom: 40px;
+}
 
 /* FOOTER STYLING */
 

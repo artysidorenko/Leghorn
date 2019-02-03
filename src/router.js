@@ -41,7 +41,11 @@ const router = (req, res) => {
   if (url === '/recentPosts' && handlerAuth.verifySession(req)) return handlerPosts.getRecentPosts(req, res);
   if (url === `/search?${querystring}` && handlerAuth.verifySession(req)) return handlerResponses.htmlPage(req, res, 'results');
   if (url === `/results?${querystring}` && handlerAuth.verifySession(req)) return handlerPosts.searchResults(req, res);
+  if (url === `/cluck?${querystring}` && handlerAuth.verifySession(req)) return handlerResponses.htmlPage(req, res, 'cluck');
+  if (url === `/postDetail?${querystring}` && handlerAuth.verifySession(req)) return handlerPosts.postDetail(req, res);
+  if (url === `/replyDetail?${querystring}` && handlerAuth.verifySession(req)) return handlerPosts.replyDetail(req, res);
   if (url === '/postNew' && handlerAuth.verifySession(req)) return handlerPosts.addPost(req, res);
+  if (url === '/postReply' && handlerAuth.verifySession(req)) return handlerPosts.addReply(req, res);
   //
   // all other requests are redirected to notFound/Forbidden page (the same for simplicity)
   //
