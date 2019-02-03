@@ -97,7 +97,7 @@ handlerResponses.loginError = (response) => {
 };
 
 handlerResponses.forbidden = (response) => {
-  const fullPath = path.join(__dirname, '..', 'public', 'html', '401Error.html');
+  const fullPath = path.join(__dirname, '..', 'public', 'html', 'UnavailableError.html');
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) handlerResponses.serverError(response);
@@ -114,7 +114,7 @@ handlerResponses.serverError = (response) => {
 };
 
 handlerResponses.notFound = (response) => {
-  const fullPath = path.join(__dirname, '..', 'public', 'html', '404Error.html');
+  const fullPath = path.join(__dirname, '..', 'public', 'html', 'UnavailableError.html');
   fs.readFile(fullPath, 'utf8', (error, file) => {
     /* istanbul ignore if */
     if (error) handlerResponses.serverError(response);

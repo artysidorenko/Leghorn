@@ -18,9 +18,9 @@
       <h2 class="banner__heading">Leghorn - Cluck Round The Clock!</h2>
     </header>
 
-    <main class="main__container">
-      <section id="loginPanel">
-        <form class="panel__container" id="loginForm" action="/login" method="post">
+    <main class="main__container main__container--short">
+      <section id="loginPanel" class="landing__section">
+        <form class="panel__container panel__container--landing" id="loginForm" action="/login" method="post">
           <h1 class="panel__heading">Log Into Existing Account</h1>
           <label class="panel__label" for="login-username">Username:
             <input class="panel__input" id="login-username" name="username"/>
@@ -31,8 +31,8 @@
           <button class="panel__button" type="submit">Log In</button>
         </form>
       </section>
-      <section id=registerPanel>
-        <form class="panel__container" id="registerForm" action="/register" method="post">
+      <section id="registerPanel" class="landing__section">
+        <form class="panel__container panel__container--landing" id="registerForm" action="/register" method="post">
           <h1 class="panel__heading">.. Or Create New User</h1>
           <label class="panel__label" for="reg-username">Username:
             <input class="panel__input" id="reg-username" name="username"/>
