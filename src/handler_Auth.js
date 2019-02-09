@@ -53,15 +53,9 @@ handlerAuth.startSession = (req, res, username) => {
 };
 
 handlerAuth.verifySession = (req) => {
-  return true;
-  // // console.log('starting verifying');
-  // const cookie = handlerAuth.parseCookie(req.headers.cookie);
-  // // console.log(`cookie parsed: ${cookie}`);
-  // if (cookie === null) return false;
-  // // console.log('validation launching');
-  // // console.log(handlerAuth.validateSignedCookie(cookie.username
-  // //   + cookie.sessionID, cookie.signature));
-  // return handlerAuth.validateSignedCookie(cookie.username + cookie.sessionID, cookie.signature);
+  const cookie = handlerAuth.parseCookie(req.headers.cookie);
+  if (cookie === null) return false;
+  return handlerAuth.validateSignedCookie(cookie.username + cookie.sessionID, cookie.signature);
 };
 
 // Everything related to the actual login and register processes:
